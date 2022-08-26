@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/movie-searching/static/css/main.53ce3090.css",
+    "main.js": "/movie-searching/static/js/main.c370ca78.js",
+    "index.html": "/movie-searching/index.html",
+    "main.53ce3090.css.map": "/movie-searching/static/css/main.53ce3090.css.map",
+    "main.c370ca78.js.map": "/movie-searching/static/js/main.c370ca78.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53ce3090.css",
+    "static/js/main.c370ca78.js"
+  ]
+}
