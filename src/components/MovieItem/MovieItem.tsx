@@ -2,21 +2,21 @@ import {FC} from 'react';
 import Searching from "../Searching/Searching";
 
 type MovieItemPropsType = {
-  movie: string,
-  setMovie: (movie: string) => void,
-  getMoviesHandler: (movie: string) => void,
+  movieName: string,
+  setMovieName: (movieName: string) => void,
+  getMoviesHandler: (movieName: string) => void,
 }
 
 const MovieItem: FC<MovieItemPropsType> = ({
-                                             movie,
-                                             setMovie,
+                                             movieName,
+                                             setMovieName,
                                              getMoviesHandler
                                            }) => {
   return (
     <div>
       <Searching
-        movie={movie}
-        setMovie={setMovie}
+        movieName={movieName}
+        setMovieName={setMovieName}
         getMoviesHandler={getMoviesHandler}
       />
     </div>

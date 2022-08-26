@@ -1,23 +1,23 @@
 import {ChangeEvent, FC, KeyboardEvent} from 'react';
 
 type SearchingPropsType = {
-  movie: string,
-  setMovie: (movie: string) => void
-  getMoviesHandler: (movie: string) => void
+  movieName: string,
+  setMovieName: (movieName: string) => void
+  getMoviesHandler: (movieName: string) => void
 }
 
 const Searching: FC<SearchingPropsType> = ({
-                                             movie,
-                                             setMovie,
+                                             movieName,
+                                             setMovieName,
                                              getMoviesHandler
                                            }) => {
 
   const searchButtonHandler = () => {
-    getMoviesHandler(movie)
+    getMoviesHandler(movieName)
   }
 
   const searchInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setMovie(event.currentTarget.value)
+    setMovieName(event.currentTarget.value)
   }
 
   const onKeyDownHandler = (event: KeyboardEvent<HTMLButtonElement>) => {
@@ -26,7 +26,7 @@ const Searching: FC<SearchingPropsType> = ({
 
   return (
     <div>
-      <input type="text" placeholder="Search" value={movie} onChange={searchInputHandler}/>
+      <input type="text" placeholder="Search" value={movieName} onChange={searchInputHandler}/>
       <button onClick={searchButtonHandler} onKeyDown={onKeyDownHandler}>Search</button>
     </div>
   );
