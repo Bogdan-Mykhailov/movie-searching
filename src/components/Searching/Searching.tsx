@@ -1,4 +1,5 @@
 import {ChangeEvent, FC, KeyboardEvent} from 'react';
+import './Searching.css'
 
 type SearchingPropsType = {
   movieName: string,
@@ -25,9 +26,20 @@ const Searching: FC<SearchingPropsType> = ({
   }
 
   return (
-    <div>
-      <input type="text" placeholder="Search" value={movieName} onChange={searchInputHandler}/>
-      <button onClick={searchButtonHandler} onKeyDown={onKeyDownHandler}>Search</button>
+    <div className='searchingWrapper'>
+      <input
+        type="text"
+        placeholder="Search"
+        value={movieName}
+        onChange={searchInputHandler}
+        className='headerSearchInput'
+      />
+      <button
+        onClick={searchButtonHandler}
+        onKeyDown={onKeyDownHandler}
+        className='headerSearchBtn'
+      >Search
+      </button>
     </div>
   );
 };

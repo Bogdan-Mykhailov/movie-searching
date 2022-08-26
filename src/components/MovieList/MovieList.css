@@ -1,0 +1,5 @@
+.movieListContainer {
+  box-shadow: 0.2rem 0.2rem 1.8rem #808080, -0.2rem -0.2rem 1.8rem #808080;
+  width: 80vw;
+  margin: 30px auto;
+}

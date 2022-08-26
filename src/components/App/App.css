@@ -1,3 +1,22 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  color: #53596e;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background: #F2F2F2;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff9f00;
+  height: 100px;
+  font-weight: 700;
 }

@@ -1,8 +1,16 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import MovieItem from "../MovieItem/MovieItem";
-import Searching from "../Searching/Searching";
 import './App.css';
+import Header from "../Header/Header";
+import MovieList from "../MovieList/MovieList";
+
+export type InitStateType = {
+  Poster: string,
+  Title: string,
+  Type: string,
+  Year: string,
+  imdbID: string
+}
 
 const App = () => {
 
@@ -16,9 +24,8 @@ const App = () => {
 
   const API_KEY = '97f67e67'
   const [movieName, setMovieName] = useState<string>('');
-  const [error, setError] = useState('');
-  const [data, setData] = useState([initState]);
-
+  const [error, setError] = useState<string>('');
+  const [data, setData] = useState<Array<InitStateType>>([initState]);
 
   const getMoviesHandler = () => {
     axios.get(`https://www.omdbapi.com/?s=${movieName}&apikey=${API_KEY}`)
@@ -35,19 +42,13 @@ const App = () => {
   }
 
   return (
-    <div className='App'>
-      <Searching
+    <div className='container'>
+      <Header
         movieName={movieName}
         setMovieName={setMovieName}
         getMoviesHandler={getMoviesHandler}
       />
-      <div>
-
-      </div>
-      <MovieItem
-        data={data}
-      />
-      <p>{error}</p>
+      {error ? <p className='error'>{error}</p> : <MovieList data={data}/>}
     </div>
   );
 };

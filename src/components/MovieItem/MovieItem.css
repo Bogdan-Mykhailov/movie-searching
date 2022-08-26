@@ -1,0 +1,33 @@
+.itemWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.posterImg {
+  height: 540px;
+  width: 380px;
+  margin-top: 20px;
+}
+
+.movieInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 60px;
+  width: 380px;
+  background-color: #ff9f00;
+}
+
+.movieTitle {
+  margin: 3px;
+  font-weight: 700;
+  color: #494d60;
+}
+
+.movieYear {
+  font-weight: 500;
+  color: #494d60;
+}
