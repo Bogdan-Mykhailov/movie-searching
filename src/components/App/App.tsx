@@ -1,39 +1,53 @@
 import React, {useState} from 'react';
-import './App.css';
 import axios from "axios";
 import MovieItem from "../MovieItem/MovieItem";
+import Searching from "../Searching/Searching";
+import './App.css';
 
 const App = () => {
 
+  const initState = {
+    Poster: "",
+    Title: "",
+    Type: "",
+    Year: "",
+    imdbID: ""
+  }
+
   const API_KEY = '97f67e67'
   const [movieName, setMovieName] = useState<string>('');
-  const [poster, setPoster] = useState();
-  const [year, setYear] = useState();
-  const [title, setTitle] = useState();
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
+  const [data, setData] = useState([initState]);
+
 
   const getMoviesHandler = () => {
-    axios.get(`https://www.omdbapi.com/?t=${movieName}&apikey=${API_KEY}`)
+    axios.get(`https://www.omdbapi.com/?s=${movieName}&apikey=${API_KEY}`)
       .then(res => {
-        console.log(res)
-        setTitle(res.data.Title)
-        setYear(res.data.Year)
-        setPoster(res.data.Poster)
-         if (res.data.Response === 'False') {
-           setError(res.data.Error);
-         }
+        if (res.data.Response === 'False') {
+          setError('Movie not found!');
+          setTimeout(() => {
+            setError('')
+          }, 2000)
+        } else {
+          setData(res.data.Search)
+        }
       })
   }
 
   return (
-    <div className="App">
-      <MovieItem
+    <div className='App'>
+      <Searching
         movieName={movieName}
         setMovieName={setMovieName}
         getMoviesHandler={getMoviesHandler}
       />
+      <div>
+
+      </div>
+      <MovieItem
+        data={data}
+      />
       <p>{error}</p>
-      <div> <p>{title}</p> <p>{year}</p> <img src={poster} alt=""/> </div>
     </div>
   );
 };

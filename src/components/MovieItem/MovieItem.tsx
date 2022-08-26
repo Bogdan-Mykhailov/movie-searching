@@ -1,24 +1,29 @@
 import {FC} from 'react';
-import Searching from "../Searching/Searching";
+
+type ItemPropsType = {
+  Poster: string,
+  Title: string,
+  Type?: string,
+  Year: string,
+  imdbID?: string
+}
 
 type MovieItemPropsType = {
-  movieName: string,
-  setMovieName: (movieName: string) => void,
-  getMoviesHandler: (movieName: string) => void,
+  data: Array<ItemPropsType>
 }
 
 const MovieItem: FC<MovieItemPropsType> = ({
-                                             movieName,
-                                             setMovieName,
-                                             getMoviesHandler
+                                             data
                                            }) => {
   return (
     <div>
-      <Searching
-        movieName={movieName}
-        setMovieName={setMovieName}
-        getMoviesHandler={getMoviesHandler}
-      />
+      {
+        data.map((d, i) => <div key={i}>
+          <span>{d.Title}</span>
+          <span>{d.Year}</span>
+          {d.Poster && <img src={d.Poster} alt=" movie poster"/>}
+        </div>)
+      }
     </div>
   );
 };
